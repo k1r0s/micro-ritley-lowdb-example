@@ -1,0 +1,25 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "run.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node run",
+    "deploy:start": "forever start run.js",
+    "deploy:stop": "forever stop run.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "kaop": "^4.0.2",
+    "lowdb": "^1.0.0",
+    "ritley": "^1.0.0"
+  },
+  "devDependencies": {
+    "forever": "^0.15.3",
+    "mocha": "^5.0.5",
+    "request": "^2.85.0"
+  }
+}

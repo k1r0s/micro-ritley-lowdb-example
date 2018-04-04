@@ -14,5 +14,8 @@ module.exports = CommonModel = createClass({
   },
   find() {
     return new Promise(resolve => resolve("find not implemented"));
+  },
+  toString(obj) {
+    return JSON.stringify(obj);
   }
 })

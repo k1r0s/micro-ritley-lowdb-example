@@ -16,4 +16,8 @@ module.exports = AppModel = extend(CommonModel, {
       resolve(this.adapter.mergePredicate(app, developer, "author_info"));
     });
   }
+
+  // , toString(obj) {
+  //   return any_xml_library.stringify(obj).
+  // }
 })

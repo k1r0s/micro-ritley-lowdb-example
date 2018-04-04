@@ -15,17 +15,13 @@ module.exports = BasicResource = extend(AbstractResource, {
     } else {
       prom = requestedModel.read();
     }
-    prom.then(result => this.writeResponse(response, result));
+    const body = requestedModel.toString(result);
+    prom.then(result => this.writeResponse(response, body));
   },
 
   writeResponse(response, body) {
-    body && response.write(this.toString(body));
+    body && response.write(body);
     response.statusCode = 200;
     response.end();
-  },
-
-  toString(obj) {
-    return JSON.stringify(obj);
   }
-
 })

@@ -1,8 +1,8 @@
 const { extend, override } = require("kaop");
 
 module.exports = BasicResource = extend(AbstractResource, {
-  constructor: [override.implement, function(parent, _uri, _model) {
-    parent(_uri);
+  constructor: [override.implement, function(parent, _model) {
+    parent(_model.path);
     this.model = _model;
   }],
 

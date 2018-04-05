@@ -2,6 +2,7 @@ const { extend } = require("kaop");
 const CommonModel = require("./common");
 
 module.exports = AppModel = extend(CommonModel, {
+  path: "app",
   read() {
     return new Promise(resolve =>
       resolve(this.adapter.getMappedCollection(

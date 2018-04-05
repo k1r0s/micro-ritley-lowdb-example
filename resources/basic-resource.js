@@ -1,22 +1,21 @@
 const { extend, override } = require("kaop");
 
 module.exports = BasicResource = extend(AbstractResource, {
-  constructor: [override.implement, function(parent, _uri, _models) {
+  constructor: [override.implement, function(parent, _uri, _model) {
     parent(_uri);
-    this.models = _models;
+    this.model = _model;
   }],
 
   get(request, response) {
     let prom = null;
-    const requestedModel = this.models[this.$uri];
 
     if(request.query.id) {
-      prom = requestedModel.find(request.query);
+      prom = this.model.find(request.query);
     } else {
-      prom = requestedModel.read();
+      prom = this.model.read();
     }
-    const body = requestedModel.toString(result);
-    prom.then(result => this.writeResponse(response, body));
+    prom.then(result =>
+      this.writeResponse(response, this.model.toString(result)));
   },
 
   writeResponse(response, body) {

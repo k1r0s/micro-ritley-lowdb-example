@@ -1,6 +1,7 @@
-const { setConfig, AbstractResource, extend } = require("ritley");
-const BasicResource = require("./resources/basic-resource");
+const { setConfig } = require("ritley");
 setConfig(require("./ritley.conf"));
+
+const BasicResource = require("./resources/basic-resource");
 
 [
   require("./models/app"),

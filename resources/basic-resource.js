@@ -1,4 +1,5 @@
 const { extend, override } = require("kaop");
+const { AbstractResource } = require("ritley");
 
 module.exports = BasicResource = extend(AbstractResource, {
   constructor: [override.implement, function(parent, _model) {
